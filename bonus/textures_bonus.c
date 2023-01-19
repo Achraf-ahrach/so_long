@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:54:37 by aahrach           #+#    #+#             */
-/*   Updated: 2023/01/19 15:24:26 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/01/19 17:55:55 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,17 @@ int	lmakla_and_e(t_gam *i)
 	static int	n;
 
 	n++;
-	if (n == 10000)
+	if (n == 15000)
 		n = 0;
-	if (n == 0 || n == 999)
+	if (n == 0 || n == 9000)
 		look_c(i, i->g_0, 2);
 	if (n == 1)
-		look_c(i, i->g_c, 1);
+	 	look_c(i, i->g_c, 1);
 	if (n == 1)
 		look_c(i, i->g_l2, 2);
-	if (n == 1800)
-		look_c(i, i->g_c2, 1);
-	if (n == 1400)
+	if (n == 7500)
+	 	look_c(i, i->g_c2, 1);
+	if (n == 9001)
 		look_c(i, i->g_l1, 2);
 	return (0);
 }
