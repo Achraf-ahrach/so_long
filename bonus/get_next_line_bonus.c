@@ -1,34 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 16:59:56 by aahrach           #+#    #+#             */
-/*   Updated: 2023/01/16 20:11:21 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/01/19 15:24:48 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
-void	ft_putnbr(int n)
+char	*ft_itoa(int n)
 {
-	char	*str;
+	int		i;
+	int		j;
+	char	*p;
+	int		nb;
 
-	str = "0123456789";
-	if (n == -2147483648)
-		write(1, "-2147483648", 11);
-	else if (n >= 0)
+	i = 0;
+	j = 0;
+	nb = n;
+	while (n >= 1)
 	{
-		if (n >= 0 && n <= 9)
-			write (1, &str[n], 1);
-		else
-		{
-			ft_putnbr(n / 10);
-			ft_putnbr(n % 10);
-		}
+		n = n / 10;
+		i++;
 	}
+	p = malloc(i + 1);
+	if (!p)
+		return (NULL);
+	p[i--] = '\0';
+	while (i >= j)
+	{
+		p[i--] = (nb % 10) + 48;
+		nb = nb / 10;
+	}
+	return (p);
+}
+
+void	foto_0_0(t_gam *gam)
+{
+	mlx_put_image_to_window(gam->ml, gam->wi, gam->g_n, 0, 0);
 }
 
 int	ft_strlen(char *s)

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:04:42 by aahrach           #+#    #+#             */
-/*   Updated: 2023/01/16 20:39:14 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/01/19 15:24:57 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	zero(char **p, t_map *map, int i)
 {
@@ -51,7 +51,8 @@ int	check_e_c_p(char **p, int x, int y)
 				map.p++;
 			else if (p[map.i][map.j] == 'C')
 				map.c++;
-			else if (p[map.i][map.j] != '1' && p[map.i][map.j] != '0')
+			else if (p[map.i][map.j] != '1' && p[map.i][map.j] != '0'
+				&& p[map.i][map.j] != 'L')
 				map.outher++;
 			map.j++;
 		}
@@ -116,7 +117,7 @@ void	can_get_point_e(char **test, int x, int y, int *c_e)
 		c_e[1] += 1;
 		return ;
 	}
-	if (test[y][x] == '1')
+	if (test[y][x] == '1' || test[y][x] == 'L')
 		return ;
 	test[y][x] = '1';
 	can_get_point_e(test, x + 1, y, c_e);

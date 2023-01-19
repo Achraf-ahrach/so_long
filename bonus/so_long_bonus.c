@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 13:09:54 by aahrach           #+#    #+#             */
-/*   Updated: 2023/01/16 23:01:21 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/01/19 15:24:38 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	print_error(int i, char **map, int x)
 {
@@ -29,7 +29,11 @@ void	print_error(int i, char **map, int x)
 	else if (i == -6)
 		write (1, "Error\nnot can P get to E or to all C\n", 38);
 	else if (i == -7)
-		write (1, "Error\nimage !", 14);
+		write (1, "Error\nimage !\n", 15);
+	else if (i == 1)
+		write (1, "rbahti assadik !\n", 18);
+	else if (i == 2)
+		write (1, "khsarti assadik !\n", 19);
 	if (x == 1)
 		ft_free(map);
 	exit(1);
@@ -97,5 +101,3 @@ void	so_long(char *p)
 		print_error(-6, main.test, 1);
 	ft_free(main.test);
 }
-
-//depth first search || backtracking || flod fill || bfs

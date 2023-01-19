@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   move_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:26:15 by aahrach           #+#    #+#             */
-/*   Updated: 2023/01/16 22:40:39 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/01/19 15:24:42 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
+
+void	print_nbr(int move, t_gam *gam)
+{
+	char	*p;
+
+	foto_0_0(gam);
+	p = ft_itoa(move);
+	mlx_string_put(gam->ml, gam->wi, 4, 13, 000000, p);
+	free(p);
+}
 
 void	position_of_e(t_gam *gam)
 {
@@ -41,34 +51,28 @@ void	move_2(t_gam *gam, int key)
 	s = 50;
 	if (key == 123)
 	{
-		ft_putnbr(gam->mov++);
-		gam->_1 = image(gam->ml, '0', gam->map);
+		print_nbr(gam->mov++, gam);
 		mlx_put_image_to_window(gam->ml, gam->wi,
-			gam->_1, (gam->x_p--) * s, gam->y_p * s);
-		gam->_2 = image(gam->ml, '>', gam->map);
+			gam->g_0, (gam->x_p--) * s, gam->y_p * s);
 		mlx_put_image_to_window(gam->ml, gam->wi,
-			gam->_2, gam->x_p * s, gam->y_p * s);
+			gam->g_ey, gam->x_p * s, gam->y_p * s);
 	}
 	else
 	{
-		ft_putnbr(gam->mov++);
-		gam->_1 = image(gam->ml, '0', gam->map);
+		print_nbr(gam->mov++, gam);
 		mlx_put_image_to_window(gam->ml, gam->wi,
-			gam->_1, (gam->x_p++) * s, gam->y_p * s);
-		gam->_2 = image(gam->ml, '<', gam->map);
+			gam->g_0, (gam->x_p++) * s, gam->y_p * s);
 		mlx_put_image_to_window(gam->ml, gam->wi,
-			gam->_2, gam->x_p * s, gam->y_p * s);
+			gam->g_es, gam->x_p * s, gam->y_p * s);
 	}
 }
 
 void	move_3(t_gam *gam)
 {
-	ft_putnbr(gam->mov++);
-	gam->_1 = image(gam->ml, '0', gam->map);
-	mlx_put_image_to_window(gam->ml, gam->wi, gam->_1,
+	print_nbr(gam->mov++, gam);
+	mlx_put_image_to_window(gam->ml, gam->wi, gam->g_0,
 		gam->x_p * gam->s, (gam->y_p++) * gam->s);
-	gam->_2 = image(gam->ml, 'p', gam->map);
-	mlx_put_image_to_window(gam->ml, gam->wi, gam->_2,
+	mlx_put_image_to_window(gam->ml, gam->wi, gam->g_p,
 		gam->x_p * gam->s, gam->y_p * gam->s);
 }
 
@@ -77,8 +81,7 @@ void	move(t_gam *gam, int key)
 	if (gam->c == 0)
 	{
 		position_of_e(gam);
-		gam->_1 = image(gam->ml, 'E', gam->map);
-		mlx_put_image_to_window(gam->ml, gam->wi, gam->_1,
+		mlx_put_image_to_window(gam->ml, gam->wi, gam->g_d,
 			gam->x_e * gam->s, gam->y_e * gam->s);
 	}
 	if (key == 123)
@@ -87,15 +90,12 @@ void	move(t_gam *gam, int key)
 		move_2(gam, key);
 	else if (key == 126)
 	{
-		ft_putnbr(gam->mov++);
-		gam->_1 = image(gam->ml, '0', gam->map);
-		mlx_put_image_to_window(gam->ml, gam->wi, gam->_1,
+		print_nbr(gam->mov++, gam);
+		mlx_put_image_to_window(gam->ml, gam->wi, gam->g_0,
 			gam->x_p * gam->s, (gam->y_p--) * gam->s);
-		gam->_2 = image(gam->ml, '^', gam->map);
-		mlx_put_image_to_window(gam->ml, gam->wi, gam->_2,
+		mlx_put_image_to_window(gam->ml, gam->wi, gam->g_ef,
 			gam->x_p * gam->s, gam->y_p * gam->s);
 	}
 	else if (key == 125)
 		move_3(gam);
-	write (1, "\n", 1);
 }
