@@ -6,7 +6,7 @@
 #    By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/08 13:25:06 by aahrach           #+#    #+#              #
-#    Updated: 2023/01/19 15:25:30 by aahrach          ###   ########.fr        #
+#    Updated: 2023/01/19 19:18:11 by aahrach          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 MLX = -lmlx -framework OpenGL -framework Appkit
 
-all : $(NAME)
+all : ${NAME}
 
 bonus : $(NAME_BONUS)
 
