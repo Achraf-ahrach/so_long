@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long_bonus.c                                    :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 13:09:54 by aahrach           #+#    #+#             */
-/*   Updated: 2023/01/21 18:45:50 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/01/21 18:37:56 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long_bonus.h"
+#include "so_long.h"
 
 void	print_error(int i, char **map, int x)
 {
@@ -31,9 +31,7 @@ void	print_error(int i, char **map, int x)
 	else if (i == -7)
 		write (1, "Error\nimage !\n", 15);
 	else if (i == 1)
-		write (1, "rbahti assadik !\n", 18);
-	else if (i == 2)
-		write (1, "khsarti assadik !\n", 19);
+		write (1, "rbahti !\n", 10);
 	else if (i == -8)
 		write (1, "file !\n", 7);
 	if (x == 1)

@@ -6,7 +6,7 @@
 /*   By: aahrach <aahrach@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:04:02 by aahrach           #+#    #+#             */
-/*   Updated: 2023/01/19 15:36:04 by aahrach          ###   ########.fr       */
+/*   Updated: 2023/01/22 09:51:08 by aahrach          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ber(char *p)
 	int	i;
 
 	i = ft_strlen(p);
+	if (i < 5)
+		return (-1);
 	i--;
 	if (p[i] == 'r' && p[i - 1] == 'e' && p[i - 2] == 'b'
 		&& p[i - 3] == '.' && p[i - 4] && p[i - 4] != '/')
@@ -57,7 +59,7 @@ int	main(int ac, char **av)
 		print_error(0, NULL, 0);
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
-		return (0);
+		print_error(-8, NULL, 0);
 	p = get_next_line(fd);
 	so_long(p);
 	s = ft_split(p, '\n');
